@@ -63,6 +63,7 @@ function App() {
               onChange={handleChange}
               type="range"
               id="slider"
+              aria-label="Slider"
               min={1}
               max={5}
               value={step}
@@ -71,8 +72,8 @@ function App() {
           </div>
           <div className="switch-container">
             <span className="monthly">Monthly Billing</span>
-            <label id="switch">
-              <input onClick={toggleSwitch} type="checkbox" />
+            <label htmlFor="checkbox" id="switch">
+              <input onClick={toggleSwitch} type="checkbox" id="checkbox" />
               <span className="toggle"></span>
             </label>
             <span className="yearly">Yearly Billing</span>
