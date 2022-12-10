@@ -4,7 +4,6 @@ import "./styles.scss";
 function App() {
   const normalPrices = [8, 12, 16, 24, 36];
   const discountPrices = [6, 9, 12, 18, 27];
-  const stepValues = [0, 25, 50, 75, 100];
 
   const [values, setValues] = useState(normalPrices);
   const [views, setViews] = useState("");
@@ -17,6 +16,7 @@ function App() {
   };
 
   useEffect(() => {
+    const stepValues = [0, 25, 50, 75, 100];
     const slider = document.querySelector("#slider");
     slider.style.background =
       "linear-gradient(to right, hsl(174, 77%, 80%) 0%, hsl(174, 77%, 80%) " +
@@ -24,7 +24,7 @@ function App() {
       "%, hsl(224, 65%, 95%) " +
       stepValues[step - 1] +
       "%, hsl(224, 65%, 95%) 100%)";
-  }, [stepValues, step]);
+  }, [step]);
 
   const toggleSwitch = (e) => {
     if (e.target.checked) {
