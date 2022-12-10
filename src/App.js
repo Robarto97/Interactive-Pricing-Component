@@ -59,12 +59,10 @@ function App() {
             <span>${price}.00</span>/ month
           </p>
           <div className="sliderbar">
-            <label htmlFor="slider"></label>
             <input
               onChange={handleChange}
               type="range"
               id="slider"
-              aria-label="Slider"
               min={1}
               max={5}
               value={step}
@@ -73,7 +71,7 @@ function App() {
           </div>
           <div className="switch-container">
             <span className="monthly">Monthly Billing</span>
-            <label htmlFor="checkbox" id="switch">
+            <label id="switch">
               <input onClick={toggleSwitch} type="checkbox" id="checkbox" />
               <span className="toggle"></span>
             </label>
