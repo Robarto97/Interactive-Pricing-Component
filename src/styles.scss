@@ -153,7 +153,7 @@ main {
           }
           .toggle {
             position: absolute;
-            background-color: #ccc;
+            background-color: $emptySliderBarColor;
             cursor: pointer;
             top: 0;
             left: 0;
@@ -230,3 +230,71 @@ main {
   }
 }
 
+@media screen and (min-width: 376px) {
+  main {
+    margin: unset;
+    .title {
+      margin-top: 1.5rem;
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        flex-direction: row;
+        font-size: 1rem;
+      }
+    }
+    .container {
+      min-width: 550px;
+      .header {
+        grid-template-columns: 50% 50%;
+        grid-template-rows: repeat(3, 1fr);
+        padding: 2rem;
+        padding-bottom: unset;
+        row-gap: 1.25rem;
+        grid-template-areas:
+          "Views Price"
+          "Slider Slider"
+          "Switch Switch";
+        .views {
+          grid-area: Views;
+          justify-self: start;
+          letter-spacing: 2px;
+        }
+        .price {
+          justify-self: end;
+          grid-area: Price;
+          span {
+            font-size: 2.25rem;
+          }
+        }
+        .sliderbar {
+          grid-area: Slider;
+        }
+        .switch-container {
+          grid-area: Switch;
+          justify-self: center;
+          span {
+            font-size: 0.9rem;
+          }
+          .yearly::after {
+            content: "25% discount";
+            top: 0;
+            transform: translateX(110%);
+          }
+        }
+      }
+      .footer {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 2rem;
+        .pros {
+          align-items: flex-start;
+        }
+        button {
+          width: 35%;
+          margin: unset;
+        }
+      }
+    }
+  }
+}
