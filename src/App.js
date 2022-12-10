@@ -59,6 +59,7 @@ function App() {
             <span>${price}.00</span>/ month
           </p>
           <div className="sliderbar">
+            <label htmlFor="slider"></label>
             <input
               onChange={handleChange}
               type="range"
