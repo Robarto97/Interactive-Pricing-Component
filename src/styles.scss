@@ -17,8 +17,7 @@ $white: hsl(0, 0%, 100%);
   box-sizing: border-box;
 }
 body {
-  background: url(images/bg-pattern.svg) no-repeat;
-  background-color: hsl(222, 87%, 97%);
+  background:  url(images/bg-pattern.svg) no-repeat;
   font-size: 15px;
   font-family: "Manrope", sans-serif;
   width: 100vw;
@@ -231,6 +230,9 @@ main {
 }
 
 @media screen and (min-width: 376px) {
+    body{
+        background-size: contain;
+    }
   main {
     margin: unset;
     .title {
