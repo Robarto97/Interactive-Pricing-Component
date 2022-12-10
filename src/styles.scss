@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap");
+$sliderBarColor: hsl(174, 77%, 80%);
+$sliderBgColor: hsl(174, 86%, 45%);
+$discountBgColor: hsl(14, 92%, 95%);
+$discountTextColor: hsl(15, 100%, 70%);
+$CtaTextColor: hsl(226, 100%, 87%);
+$CtaBgColor: hsl(227, 35%, 25%);
+$textColor: hsl(225, 20%, 60%);
+$emptySliderBarColor: hsl(224, 65%, 95%);
+$mainBgColor: hsl(230, 100%, 99%);
+$toggleBgColor: hsl(223, 50%, 87%);
+$white: hsl(0, 0%, 100%);
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background: url(images/bg-pattern.svg) no-repeat;
+  background-color: hsl(222, 87%, 97%);
+  font-size: 15px;
+  font-family: "Manrope", sans-serif;
+  width: 100vw;
+  height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 3rem auto;
+  width: calc(100% - 2rem);
+  .title {
+    text-align: center;
+    background: url(images/pattern-circles.svg) no-repeat center;
+    min-height: 25vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h1 {
+      font-size: 1.35rem;
+      color: $CtaBgColor;
+    }
+    p {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+      margin-top: 0.5rem;
+      color: $textColor;
+    }
+  }
+  .container {
+    min-width: calc(375px - 2rem);
+    background-color: $white;
+    border-radius: 10px;
+    margin-bottom: 3rem;
+    box-shadow: 0 0 5px 2px #00000015;
+    text-align: center;
+    color: $textColor;
+    .header {
+      padding: 1.5rem;
+      padding-bottom: unset;
+      display: grid;
+      grid-template-columns: 100%;
+      grid-template-rows: repeat(4, 1fr);
+      justify-content: center;
+      align-items: center;
+      row-gap: 0.75rem;
+      .views {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
+      }
+      .price {
+        grid-row: 3 / span 1;
+        font-size: 0.9rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span {
+          font-weight: 800;
+          color: $CtaBgColor;
+          font-size: 2rem;
+          margin-right: 0.5rem;
+        }
+      }
+      .sliderbar {
+        width: 100%;
+        #slider {
+          width: 100%;
+          appearance: none;
+          border-radius: 5px;
+          outline: none;
+        }
+        #slider::-webkit-slider-runnable-track {
+          height: 10px;
+          appearance: none;
+        }
+        #slider::-webkit-slider-thumb {
+          appearance: none;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          margin-top: -15px;
+          background: url(images/icon-slider.svg) no-repeat center;
+          background-color: $sliderBgColor;
+          box-shadow: 0 0 10px 1px $sliderBgColor;
+          cursor: pointer;
+        }
+        #slider:focus {
+          outline: none;
+        }
+        #slider:active::-webkit-slider-thumb {
+          cursor: grabbing;
+        }
+      }
+      .switch-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.75rem;
+        span {
+          font-size: 0.75rem;
+        }
+        .yearly {
+          position: relative;
+        }
+        .yearly::after {
+          content: "-25%";
+          position: absolute;
+          top: -10%;
+          right: 0;
+          transform: translateX(120%);
+          border-radius: 10px;
+          background-color: $discountBgColor;
+          color: $discountTextColor;
+          padding: 0.15rem 0.3rem;
+          font-size: 0.7rem;
+        }
+        #switch {
+          position: relative;
+          display: inline-block;
+          width: 50px;
+          height: 25px;
+          input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+          }
+          .toggle {
+            position: absolute;
+            background-color: #ccc;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            border-radius: 25px;
+          }
+          .toggle:before {
+            content: "";
+            position: absolute;
+            height: 17px;
+            width: 17px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            border-radius: 50%;
+            transition: 0.5s;
+          }
+          input:hover + .toggle {
+            background-color: $sliderBarColor;
+          }
+          input:checked + .toggle {
+            background-color: $sliderBgColor;
+          }
+          input:checked + .toggle::before {
+            transform: translateX(24px);
+          }
+        }
+      }
+    }
+    .footer {
+      margin-top: 2rem;
+      border-top: 1px solid $textColor;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      .pros {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        p {
+          font-size: 0.85rem;
+        }
+        p::before {
+          content: "";
+          position: relative;
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          background: url(images/icon-check.svg) no-repeat center;
+          margin-right: 1rem;
+        }
+      }
+      button {
+        background-color: $CtaBgColor;
+        color: $CtaTextColor;
+        border: none;
+        outline: none;
+        width: 60%;
+        padding: 0.75rem;
+        font-weight: 600;
+        border-radius: 25px;
+        cursor: pointer;
+        margin-bottom: 1rem;
+        transition: color 0.5s ease;
+      }
+      button:hover {
+        color: $white;
+      }
+    }
+  }
+}
+
